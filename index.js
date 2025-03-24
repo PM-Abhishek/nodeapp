@@ -3,11 +3,17 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from Railway!" });
+// Base Path
+app.get("/api", (req, res) => {
+    res.json({ message: "Welcome to the API Base Path!" });
 });
 
-// Listen on 0.0.0.0 to allow external access
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Server running on port ${PORT}`);
+// Extension Path
+app.get("/api/hello", (req, res) => {
+    res.json({ message: "Hello from the API!" });
+});
+
+// Start the server
+app.listen(PORT, () => {
+    console.log(`🚀 Server running on http://localhost:${PORT}/api`);
 });
