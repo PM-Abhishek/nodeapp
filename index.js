@@ -1,19 +1,18 @@
 const express = require("express");
 const app = express();
+const port = process.env.PORT || 3000;
 
-const PORT = process.env.PORT || 3000;
-
-// Base Path
-app.get("/api", (req, res) => {
-    res.json({ message: "Welcome to the API Base Path!" });
+// Base path `/mockup`
+app.get("/mockup", (req, res) => {
+  res.json({ message: "Mockup API is working!" });
 });
 
-// Extension Path
-app.get("/api/hello", (req, res) => {
-    res.json({ message: "Hello from the API!" });
+// Extension path `/mockup/test`
+app.get("/mockup/test", (req, res) => {
+  res.json({ message: "Hello from Mockup API!" });
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}/api`);
+app.listen(port, () => {
+  console.log(`Server running at http://localhost:${port}`);
 });
